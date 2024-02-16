@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import Input from "./Input";
 import Button from "./Button";
@@ -23,11 +22,12 @@ const InputContainer = styled.div`
   border-radius: 0.5rem;
   background: #c9d4f5c4;
 `;
-export default function ImageLinkForm({ onInputChange, onBtnSubmit }) {
+export default function ImageLinkForm({ onInputChange, onBtnSubmit}) {
   return (
     <Container>
       <Paragraph>
-        Le Cerveau Magique te trouvera forcément alors mets le lien d'une image et essaye !
+        Le Cerveau Magique te trouvera forcément alors mets le lien d'une image
+        et essaye !
       </Paragraph>
       <InputContainer>
         <Input onChange={onInputChange} type="text" />

@@ -14,7 +14,6 @@ function App() {
   const [input, setInput] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [boxes, setBoxes] = useState([]);
-  
 
   const PAT = "7f8e2cc51dd947f695c5b7c9fe72e725";
   const USER_ID = "yamna";
@@ -41,12 +40,8 @@ function App() {
     setBoxes(boxes);
     
   };
-  const onInputChange = (event) => {
-    setInput(event.target.value);
-  };
 
-  const onBtnSubmit = () => {
-    setImageUrl(input);
+  const getFaceBoxes = () => {
 
     const raw = JSON.stringify({
       user_app_id: {
@@ -82,6 +77,15 @@ function App() {
         displayFaceBox(calculateFaceLocation(result));
       })
       .catch((error) => console.log("error", error));
+  }
+  const onInputChange = (event) => {
+    setInput(event.target.value);
+  };
+
+
+  const onBtnSubmit = () => {
+    setImageUrl(input);
+    getFaceBoxes();
   };
 
   return (
@@ -93,7 +97,7 @@ function App() {
             onInputChange={onInputChange}
             onBtnSubmit={onBtnSubmit}
           />
-          <FaceRecognition imageUrl={imageUrl} alt="" boxes={boxes} />
+          <FaceRecognition imageUrl={imageUrl === "" ? '/image-placeholder.png' : imageUrl} alt="" boxes={boxes} />
         </>
     </Main>
   );

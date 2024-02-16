@@ -15,6 +15,9 @@ const Image = styled.img`
   margin: 1rem;
   border-radius: 0.5rem;
   box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  @media screen and (max-width: 370px) {
+    width: calc(100vw - 2rem);
+  }
 `;
 
 const BoundingBox = styled.div`
